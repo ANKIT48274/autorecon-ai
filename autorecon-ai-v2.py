@@ -14,8 +14,8 @@
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════════╝
 
-Author    : Your Name
-GitHub    : https://github.com/yourusername/autorecon-ai
+Author    : ANKIT48274
+GitHub    : https://github.com/ANKIT48274/autorecon-ai
 License   : MIT
 Python    : 3.9+
 

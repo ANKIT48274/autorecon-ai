@@ -28,12 +28,15 @@ AutoRecon AI is a professional-grade, AI-powered reconnaissance tool built for c
 ## 🚀 Quick Start
 
 ```bash
-# Clone the repo
-git clone https://github.com/yourusername/autorecon-ai.git
+# Clone (anyone can clone without login!)
+git clone https://github.com/ANKIT48274/autorecon-ai.git
 cd autorecon-ai
 
-# Run
+# Run interactive
 python3 autorecon-ai-v2.py
+
+# Or use CLI mode
+python3 autorecon-ai-v2.py -t example.com -m quick
 ```
 
 ## 📋 Scan Modes

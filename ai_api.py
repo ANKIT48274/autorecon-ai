@@ -14,6 +14,8 @@
 ║  Version 1.0 | Part of AutoRecon AI Suite                    ║
 ║                                                              ║
 ╚══════════════════════════════════════════════════════════════════╝
+
+Author: ANKIT48274 | GitHub: https://github.com/ANKIT48274/autorecon-ai
 """
 
 import json
