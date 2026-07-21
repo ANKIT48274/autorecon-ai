@@ -866,6 +866,7 @@ class AutoReconV3:
         self.start_time = 0
         self.lhost = ""
         self.lport = 4444
+        self.quick_mode = False  # CLI mode = no interactive prompts
 
     def show_banner(self):
         print(BANNER_V3)
@@ -904,9 +905,12 @@ class AutoReconV3:
         if not self.target_setup(): return
         section("🕵️ PHASE 1: INTELLIGENCE GATHERING")
         info(f"Target: {self.target}")
-        choices = f"\n    {C}1{RS} Quick\n    {C}2{RS} Full\n    {C}3{RS} Vuln Scan\n    {C}4{RS} Stealth\n"
-        print(choices)
-        choice = input(f"  {Y}Mode [1]:{RS} ").strip() or "1"
+        if self.quick_mode:
+            choice = "1"  # Auto quick mode
+        else:
+            choices = f"\n    {C}1{RS} Quick\n    {C}2{RS} Full\n    {C}3{RS} Vuln Scan\n    {C}4{RS} Stealth\n"
+            print(choices)
+            choice = input(f"  {Y}Mode [1]:{RS} ").strip() or "1"
         mode_map = {"1":"quick","2":"full","3":"vuln","4":"stealth"}
         gatherer = IntelligenceGatherer(self.target)
         self.intel = gatherer.gather_all(mode_map.get(choice,"quick"))
@@ -927,8 +931,11 @@ class AutoReconV3:
             warn("Run recon first!")
             return
         section("🔓 PHASE 3: BRUTE FORCE")
-        us = input(f"  {Y}Usernames (comma-sep) [admin]:{RS} ").strip()
-        usernames = [u.strip() for u in us.split(",")] if us else ["admin"]
+        if self.quick_mode:
+            usernames = ["admin"]
+        else:
+            us = input(f"  {Y}Usernames (comma-sep) [admin]:{RS} ").strip()
+            usernames = [u.strip() for u in us.split(",")] if us else ["admin"]
         engine = BruteForceEngine(self.target, self.intel.get("ports", []), usernames[0])
         self.credentials = engine.brute_force_all(usernames)
         ok(f"Brute force done! Found {len(self.credentials)} creds")
@@ -938,7 +945,10 @@ class AutoReconV3:
             warn("Run recon first!")
             return
         section("💥 PHASE 4: EXPLOITATION")
-        lhost = self.get_lhost()
+        if self.quick_mode:
+            lhost = self.lhost or "127.0.0.1"
+        else:
+            lhost = self.get_lhost()
         engine = ExploitationEngine(self.target, self.intel.get("ports", []), self.credentials)
         self.exploits = engine.exploit_all(lhost)
         if self.exploits:
@@ -1063,6 +1073,7 @@ def main():
         if args.target:
             app.target = args.target
             app.lhost = args.lhost or ""
+            app.quick_mode = True  # CLI mode = skip interactive prompts
             if args.mode == "auto": app.run_full_auto()
             elif args.mode == "recon": app.run_recon(); app.run_report()
             elif args.mode == "web": app.run_recon(); app.run_web_scan(); app.run_report()
