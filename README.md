@@ -1,132 +1,117 @@
-# 🤖 AutoRecon AI v2.0
+# ☠️ AutoRecon AI — ULTIMATE v3.0
 
-**AI-Powered Reconnaissance & Analysis Engine**
+**Full AI-Powered Penetration Testing & Exploitation Engine**
 
 ![Python](https://img.shields.io/badge/Python-3.9+-blue)
 ![License](https://img.shields.io/badge/License-MIT-green)
-![Version](https://img.shields.io/badge/Version-2.0.0-purple)
+![Version](https://img.shields.io/badge/Version-3.0-red)
+![Kali](https://img.shields.io/badge/Kali-Linux-blueviolet)
 
-AutoRecon AI is a professional-grade, AI-powered reconnaissance tool built for cybersecurity professionals, bug bounty hunters, and CTF players. It combines multi-threaded port scanning with intelligent vulnerability analysis and beautiful report generation.
+AutoRecon AI is a **complete penetration testing framework** built for cybersecurity professionals, bug bounty hunters, and CTF players. It combines multi-threaded scanning, AI-powered vulnerability analysis, brute-force, exploitation, and professional reporting — all in one tool.
 
 ---
 
-## ✨ Features
+## 🔥 FEATURES (v3 ULTIMATE)
 
-| Feature | Description |
-|---|---|
-| 🚀 **Multi-threaded Scanner** | Fast parallel port scanning (up to 100 threads) |
-| 🧠 **AI Analysis Engine** | Intelligent vulnerability assessment with CVE matching |
-| 🔴 **Risk Scoring** | Automated risk calculation (0-100) per service |
-| 🌐 **Web Tech Detection** | Fingerprint web technologies (Apache, Nginx, WordPress, etc.) |
-| 📡 **DNS Enumeration** | A, AAAA, MX, NS, TXT, SOA, CNAME records |
-| 🔒 **SSL Inspection** | Certificate validation, expiry, SANs, version |
-| ⚔️ **Attack Vector Analysis** | Identify dangerous service combinations |
-| 📊 **HTML Reports** | Professional, styled reports ready for sharing |
-| 📋 **JSON Export** | Machine-readable data for further analysis |
-| 🎯 **Multiple Scan Modes** | Quick, Full, Smart, Web Focus, Batch |
+| Phase | Module | What it does |
+|---|---|---|
+| 🕵️ **RECON** | Intelligence Gathering | Subdomains (crt.sh/fierce), DNS enum, Port scan (nmap), WHOIS, Dir enum (gobuster) |
+| 🌐 **WEB SCAN** | Vulnerability Assessment | SQLi (sqlmap), XSS, Nikto, Security Headers, Tech detection (whatweb) |
+| 🔓 **BRUTE FORCE** | Credential Attack | Hydra on SSH/FTP/HTTP/SMB/RDP/VNC with wordlists |
+| 💥 **EXPLOIT** | Auto Exploitation | SMB (EternalBlue), RDP (BlueKeep), Reverse payloads (msfvenom), Searchsploit |
+| 🎧 **LISTENER** | Shell Handler | Built-in reverse shell listener |
+| 🧠 **AI DEEP** | AI Analysis | Claude/OpenAI/Grok API integration for deep intelligence |
+| 📊 **REPORT** | HTML Reports | Cyberpunk-themed professional reports with risk scoring |
 
-## 🚀 Quick Start
+## 🚀 QUICK START
 
 ```bash
-# Clone (anyone can clone without login!)
+# Clone (no login required!)
 git clone https://github.com/ANKIT48274/autorecon-ai.git
 cd autorecon-ai
 
-# Run interactive
-python3 autorecon-ai-v2.py
+# 🥇 RECOMMENDED: Run v3 ULTIMATE (interactive menu)
+python3 autorecon-v3-ultimate.py
 
-# Or use CLI mode
+# One-shot recon mode
+python3 autorecon-v3-ultimate.py -t scanme.nmap.org -m recon
+
+# Full auto attack chain
+python3 autorecon-v3-ultimate.py -t TARGET --lhost YOUR_IP -m full
+
+# Or use v2 scanner
 python3 autorecon-ai-v2.py -t example.com -m quick
 ```
 
-## 📋 Scan Modes
+## 🎯 SCAN MODES (v3 ULTIMATE)
 
 ```
-1  🚀  Quick Scan     — Top 1000 ports, service detection
-2  🔬  Full Scan      — All 10000 ports, service detection  
-3  🎯  Smart Scan     — AI-driven (chooses ports based on target)
-4  🌐  Web Focus      — HTTP/HTTPS servers + SSL inspection
-5  📋  Batch Mode     — Scan multiple targets from file
+1  🕵️  FULL RECON     — Subdomains, Ports, DNS, WHOIS, Directories
+2  🌐  WEB SCAN        — SQLi, XSS, Nikto, Headers
+3  🔓  BRUTE FORCE     — Hydra SSH/FTP/HTTP/SMB/RDP
+4  💥  EXPLOIT          — SMB (EternalBlue), RDP (BlueKeep), Payloads
+5  🎧  LISTENER         — Reverse shell handler
+6  🔥  FULL AUTO        — 1→2→3→4 (Complete attack chain!)
+7  🧠  AI DEEP          — Claude/OpenAI/Grok analysis
+0  ❌  EXIT
 ```
 
-## 🧠 AI Analysis Capabilities
+## 📁 PROJECT FILES
 
-### Vulnerability Intelligence
-- **CRITICAL**: SMB (EternalBlue), RDP (BlueKeep), Redis, MongoDB, Telnet
-- **HIGH**: FTP, MySQL, PostgreSQL, VNC, Docker, Elasticsearch
-- **MEDIUM**: SSH, SMTP, DNS, HTTP, LDAP, SNMP
-- Plus CVE references and exploitation techniques
+| File | Size | Purpose |
+|---|---|---|
+| `autorecon-v3-ultimate.py` | ~50 KB | 🔥 **Main tool — Full exploitation engine** |
+| `autorecon-ai-v2.py` | ~96 KB | Scanner + AI engine (v2) |
+| `ai_api.py` | ~20 KB | Claude/OpenAI/Grok API integration |
+| `autorecon_launcher.py` | ~14 KB | Unified launcher for all tools |
+| `README.md` | ~4 KB | Documentation |
 
-### Attack Chain Detection
-- Web + Database exposed = SQLi risk
-- SMB + RDP = Windows exploitation chain
-- AD services exposed = Domain compromise risk
-- Multiple web interfaces = Increased attack surface
-
-## 📊 Reports
-
-The tool generates two types of reports:
-
-1. **HTML Report** — Beautiful, styled report with:
-   - Risk score dashboard
-   - Open ports table with risk levels
-   - AI findings with severity indicators
-   - DNS records
-   - SSL/TLS information
-   - Web technology detection
-   - Actionable recommendations
-
-2. **JSON Export** — Full machine-readable data for integration with other tools
-
-## 🛡️ Example
+## 💡 EXAMPLE USAGE
 
 ```bash
-$ python3 autorecon-ai-v2.py
+# Full penetration test on a target
+python3 autorecon-v3-ultimate.py -t 192.168.1.100 -m full --lhost 192.168.1.50
 
-╔══════════════════════════════════════╗
-║   AutoRecon AI v2.0                  ║
-║   AI-Powered Reconnaissance Engine   ║
-╚══════════════════════════════════════╝
-
-Enter target: example.com
-[+] Resolved: example.com → 93.184.216.34
-[+] Target is ALIVE
-
-Select scan mode:
-  1  Quick Scan
-  2  Full Scan
-  3  Smart Scan
-
-> 1
-
-Scanning 93.184.216.34...
-22/open  ssh
-80/open  http  
-443/open https
-
-🧠 AI ANALYSIS:
-  🔴 MEDIUM: SSH (port 22)
-  🟡 MEDIUM: HTTP (port 80)
-  🟢 LOW: HTTPS (port 443)
-
-📊 Report: autorecon_report_example_com.html
+# Output:
+# 📁 autorecon_v3_output_TIMESTAMP/
+#   ├── nmap_quick.xml
+#   ├── nmap_quick.txt
+#   ├── gobuster_80.txt
+#   ├── hydra_ssh.txt
+#   ├── payload.elf
+#   ├── rev_shell.py
+#   └── ...
+# 📊 autorecon_v3_report_TARGET_TIMESTAMP.html
 ```
 
-## 🔧 Requirements
+## 🔧 REQUIREMENTS
 
 - Python 3.9+
-- `rich` library (auto-installed or use fallback mode)
-- `nmap` (optional, for extended scanning)
+- Kali Linux (recommended) or any Linux with security tools
+- `rich` library (auto-fallback available)
+- Installed tools: nmap, hydra, sqlmap, gobuster, nikto, whatweb, searchsploit, msfvenom
+- Optional: Claude/OpenAI/Grok API keys for AI deep analysis
 
-## ⚠️ Legal Disclaimer
+## 🧪 AI API SETUP (Optional)
 
-This tool is for **authorized security testing only**. 
-Unauthorized scanning of systems you don't own or have written permission to test may be illegal.
+```bash
+# For deep AI analysis (Claude, OpenAI, or Grok)
+export ANTHROPIC_API_KEY=sk-ant-...
+export OPENAI_API_KEY=sk-...
+export GROK_API_KEY=...
 
-## 📝 License
+# Then run v3 and choose option 7 (AI Deep)
+python3 autorecon-v3-ultimate.py
+```
+
+## ⚠️ LEGAL DISCLAIMER
+
+This tool is for **authorized security testing only**. Unauthorized scanning of systems you don't own or have written permission to test may be illegal.
+
+## 📝 LICENSE
 
 MIT License — use freely, contribute openly.
 
 ---
 
-Built with ❤️ Ankit Patidar
+**Author: ANKIT48274** | Built with ❤️ for the cybersecurity community
