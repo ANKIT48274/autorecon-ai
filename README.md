@@ -129,4 +129,4 @@ MIT License — use freely, contribute openly.
 
 ---
 
-Built with ❤️ for the cybersecurity community
+Built with ❤️ Ankit Patidar
