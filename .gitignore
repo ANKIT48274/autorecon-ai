@@ -1,0 +1,24 @@
+# AutoRecon AI GitIgnore
+
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.egg-info/
+dist/
+build/
+
+# API Keys (IMPORTANT!)
+.env
+*.env
+
+# Scan outputs
+*.html
+*.json
+nmap_*
+*.txt
+
+# OS
+.DS_Store
+Thumbs.db
+*.swp

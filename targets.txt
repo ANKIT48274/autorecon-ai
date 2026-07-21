@@ -1,0 +1,7 @@
+# AutoRecon AI Batch Targets
+# Add one target per line (domains or IPs)
+# Lines starting with # are ignored
+
+example.com
+scanme.nmap.org
+localhost
